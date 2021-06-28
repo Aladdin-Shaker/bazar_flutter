@@ -12,8 +12,10 @@ const String cartViewRoute = '/cart';
 const String accountViewRoute = '/account';
 const String signinViewRoute = '/signin';
 const String signupViewRoute = '/signup';
-const String categoriesViewRoute = '/categories';
 const String logoutRoute = '/logout';
+const String categoriesViewRoute = '/categories';
+const String searchViewRoute = '/search';
+const String singleProductViewRoute = '/single_product';
 const String undefiendRoute = '/undefiend';
 
 // colors

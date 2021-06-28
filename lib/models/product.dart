@@ -1,5 +1,3 @@
-import 'dart:async';
-
 class Product {
   final String title;
   final double price;
@@ -27,7 +25,7 @@ class Product {
         isFavorite = json['isFavorite'] as bool,
         imageUrl = json['imageUrl'] as String;
 
-// method?, which converts a User instance into a map.
+  // method?, which converts a User instance into a map.
   Map<String, dynamic> toJson() => {
         'title': title,
         'price': price,

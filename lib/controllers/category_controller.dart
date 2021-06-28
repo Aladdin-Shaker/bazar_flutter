@@ -3,16 +3,19 @@ import 'package:bazar/services/category_service.dart';
 import 'package:get/state_manager.dart';
 
 class CategoryController extends GetxController with StateMixin {
-  static final allCategories = Future.value(<Categories>[]).obs;
-
+  RxList<Categories> allCategories = RxList<Categories>();
   @override
   void onInit() {
     super.onInit();
     fetchAllCategories();
   }
 
-  Future<List<Categories>?> fetchAllCategories() async {
-    allCategories.value = CategoryService.getAllCategories();
-    update();
+  Future<void> fetchAllCategories() async {
+    return CategoryService.getAllCategories()
+        .then((response) {
+          allCategories.value = response;
+        })
+        .catchError((err) => print('Error!!!!! : $err'))
+        .whenComplete(() => print('completed'));
   }
 }

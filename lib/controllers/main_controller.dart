@@ -1,8 +1,8 @@
-import 'package:bazar/views/screens/cart/cart.dart';
-import 'package:bazar/views/screens/home/home_screen.dart';
-import 'package:bazar/views/screens/messages/messages.dart';
-import 'package:flutter/material.dart';
 import 'package:bazar/views/screens/account/account.dart';
+import 'package:bazar/views/screens/cart/cart_screen.dart';
+import 'package:bazar/views/screens/home/home_screen.dart';
+import 'package:bazar/views/screens/messages/messages_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
 class MainController extends GetxController {

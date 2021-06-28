@@ -4,24 +4,32 @@ import 'package:bazar/config/sizes.dart';
 import 'package:bazar/controllers/home_controller.dart';
 import 'package:bazar/models/category.dart';
 import 'package:bazar/models/product.dart';
-import 'package:bazar/views/widgets/app_notification_btn.dart';
+import 'package:bazar/views/widgets/appbar_notification_action.dart';
 import 'package:bazar/views/widgets/custom_appbar.dart';
 import 'package:bazar/views/widgets/custom_cart_title.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 
 class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
+  final GlobalKey<FormState> _homeKey =
+      GlobalKey<FormState>(debugLabel: '_homeScreenkey');
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      key: _homeKey,
       backgroundColor: kTextLigntColor,
       appBar: customAppbar(
-          isBackBtn: false,
-          isSearch: true,
-          actions: [appBarNotificationBtn()],
-          context: context),
+        title: const Text(
+          'Home',
+          style: TextStyle(color: kPrimaryColor),
+        ),
+        isBackBtn: false,
+        actions: [appBarNotificationBtn()],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -44,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                 customCartTitle(
                     title: "Categories",
                     titleSize: 20,
-                    press: () => Navigator.pushNamed(context, '/categories')),
+                    press: () => Get.toNamed(categoriesViewRoute)),
                 SizedBox(height: getProportionateScreenHeight(10)),
                 _buildListCategories()
               ],

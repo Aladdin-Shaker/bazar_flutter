@@ -1,40 +1,25 @@
 import 'package:bazar/config/constants.dart';
-import 'package:bazar/config/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 AppBar customAppbar({
+  required Widget title,
   required List<Widget> actions,
   required bool isBackBtn,
-  required bool isSearch,
-  required BuildContext context,
 }) {
   return AppBar(
     elevation: 0.4,
-    title: isSearch
-        ? TextField(
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              prefixIcon: Icon(
-                Icons.search,
-                color: kGrayColor,
-                size: getProportionateScreenWidth(30),
-              ),
-            ),
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: getProportionateScreenWidth(20),
-            ),
-          )
-        : Container(),
+    // centerTitle: true,
+    title: title,
     leading: isBackBtn
         ? IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios_new_sharp,
               color: kGrayColor,
             ),
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Get.back(),
           )
-        : SizedBox.shrink(),
+        : const SizedBox.shrink(),
     actions: actions,
     automaticallyImplyLeading: false,
   );

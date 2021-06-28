@@ -2,47 +2,68 @@ import 'package:bazar/config/constants.dart';
 import 'package:bazar/views/screens/account/account.dart';
 import 'package:bazar/views/screens/auth/signin/signin_screen.dart';
 import 'package:bazar/views/screens/auth/signup/signup_screen.dart';
-import 'package:bazar/views/screens/cart/cart.dart';
-import 'package:bazar/views/screens/categories/categories.dart';
+import 'package:bazar/views/screens/categories/categories_screen.dart';
 import 'package:bazar/views/screens/home/home_screen.dart';
 import 'package:bazar/views/screens/init/init_screen.dart';
-import 'package:bazar/views/screens/landing/landing_screen.dart';
-import 'package:bazar/views/screens/messages/messages.dart';
-import 'package:bazar/views/screens/undefined/undefined.dart';
-import 'package:flutter/material.dart';
+import 'package:bazar/views/screens/messages/messages_screen.dart';
+import 'package:bazar/views/screens/search/search_screen.dart';
+import 'package:bazar/views/screens/single_product/single_product.dart';
+import 'package:get/route_manager.dart';
 
-Route<dynamic> generateRoute(RouteSettings settings) {
-  switch (settings.name) {
-    case landingViewRoute:
-      return MaterialPageRoute(builder: (context) => const LandingScreen());
-
-    case initViewRoute:
-      return MaterialPageRoute(builder: (context) => const InitScreen());
-
-    case messagesViewRoute:
-      return MaterialPageRoute(builder: (context) => const MessagesScreen());
-
-    case cartViewRoute:
-      return MaterialPageRoute(builder: (context) => const CartScreen());
-
-    case accountViewRoute:
-      return MaterialPageRoute(builder: (context) => const AccountScreen());
-
-    case signupViewRoute:
-      return MaterialPageRoute(builder: (context) => const SignupScreen());
-
-    case signinViewRoute:
-      return MaterialPageRoute(builder: (context) => const SigninScreen());
-
-    case homeViewRoute:
-      return MaterialPageRoute(builder: (context) => HomeScreen());
-
-    case categoriesViewRoute:
-      return MaterialPageRoute(builder: (context) => CategoriesScreen());
-
-    default:
-      return MaterialPageRoute(
-        builder: (context) => UndefinedScreen(name: settings.name),
-      );
-  }
-}
+List<GetPage<dynamic>>? getPagesRoutes = [
+  GetPage(
+    name: accountViewRoute,
+    page: () => const AccountScreen(),
+    title: 'account',
+  ),
+  GetPage(
+    name: signinViewRoute,
+    page: () => const SigninScreen(),
+    title: 'signin',
+  ),
+  GetPage(
+    name: initViewRoute,
+    page: () => const InitScreen(),
+    title: 'init',
+  ),
+  GetPage(
+    name: landingViewRoute,
+    page: () => SearchScreen(),
+    title: 'landing',
+  ),
+  GetPage(
+    name: signupViewRoute,
+    page: () => const SignupScreen(),
+    title: 'signup',
+  ),
+  GetPage(
+    name: homeViewRoute,
+    page: () => HomeScreen(),
+    title: 'home',
+  ),
+  GetPage(
+    name: categoriesViewRoute,
+    page: () => CategoriesScreen(),
+    title: 'categories',
+  ),
+  GetPage(
+    name: searchViewRoute,
+    page: () => SearchScreen(),
+    title: 'search',
+  ),
+  GetPage(
+    name: singleProductViewRoute,
+    page: () => SingleProductScreen(),
+    title: 'single_product',
+  ),
+  GetPage(
+    name: messagesViewRoute,
+    page: () => const MessagesScreen(),
+    title: 'messages',
+  ),
+  GetPage(
+    name: cartViewRoute,
+    page: () => SearchScreen(),
+    title: 'cart',
+  ),
+];
