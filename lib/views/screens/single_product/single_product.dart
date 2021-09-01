@@ -1,20 +1,20 @@
 import 'package:bazar/config/constants.dart';
 import 'package:bazar/config/sizes.dart';
-import 'package:bazar/controllers/product_controller.dart';
+import 'package:bazar/controllers/search_controller.dart';
+import 'package:bazar/models/product.dart';
 import 'package:bazar/views/screens/single_product/nested_tab_products.dart';
 import 'package:bazar/views/widgets/appbar_cart_action.dart';
 import 'package:bazar/views/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SingleProductScreen extends GetWidget<ProductController> {
+class SingleProductScreen extends GetWidget<SearchController> {
   SingleProductScreen({Key? key}) : super(key: key);
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    final product = Get.arguments;
     return Scaffold(
       key: _scaffoldKey,
       appBar: customAppbar(
@@ -22,20 +22,28 @@ class SingleProductScreen extends GetWidget<ProductController> {
         actions: [appBarCartBtn()],
         isBackBtn: true,
       ),
-      body: Container(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          children: <Widget>[
-            _buildProductSlider(product),
-            const SizedBox(height: 20),
-            _buildProductInfo(product),
-          ],
+      body: SingleChildScrollView(
+        child: GetBuilder<SearchController>(
+          builder: (controller) {
+            final Product product = controller.selectedProduct;
+            return Container(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                children: <Widget>[
+                  _buildProductSlider(product),
+                  const SizedBox(height: 20),
+                  _buildProductInfo(product),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );
   }
 
-  Widget _buildProductInfo(product) {
+  Widget _buildProductInfo(Product product) {
+    debugPrint('product info => ${product.price}');
     return Column(
       children: <Widget>[
         Row(
@@ -52,7 +60,7 @@ class SingleProductScreen extends GetWidget<ProductController> {
             Row(
               children: [
                 Row(
-                  children: _buildStarRating(product.star.round() as int),
+                  children: _buildStarRating(product.star.round()),
                 ),
                 SizedBox(width: getProportionateScreenWidth(5)),
                 Text(

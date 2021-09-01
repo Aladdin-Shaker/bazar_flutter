@@ -1,4 +1,4 @@
-import 'package:bazar/views/screens/account/account.dart';
+import 'package:bazar/views/screens/account/account_screen.dart';
 import 'package:bazar/views/screens/cart/cart_screen.dart';
 import 'package:bazar/views/screens/home/home_screen.dart';
 import 'package:bazar/views/screens/messages/messages_screen.dart';
@@ -25,7 +25,7 @@ class MainController extends GetxController {
           _currentPage = const MessagesScreen();
           break;
         case 2:
-          _currentPage = const CartScreen();
+          _currentPage = CartScreen();
           break;
         case 3:
           _currentPage = const AccountScreen();

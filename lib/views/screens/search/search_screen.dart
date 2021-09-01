@@ -45,225 +45,7 @@ class SearchScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              Get.bottomSheet(
-                Container(
-                  padding: const EdgeInsets.all(5),
-                  height: SizeConfig.screenHeight / 1.2,
-                  width: SizeConfig.screenWidth,
-                  child: Column(
-                    children: <Widget>[
-                      Center(
-                        child: Divider(
-                          color: kGrayColor,
-                          thickness: 5,
-                          indent: getProportionateScreenWidth(150),
-                          endIndent: getProportionateScreenWidth(150),
-                          height: 25,
-                        ),
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Filter',
-                          style: TextStyle(
-                            color: kSecondaryColor,
-                            fontSize: getProportionateScreenWidth(18),
-                          ),
-                        ),
-                        trailing: InkWell(
-                          onTap: () {},
-                          focusColor: kPrimaryColor,
-                          child: Text(
-                            'Clear',
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontWeight: FontWeight.w800,
-                              fontSize: getProportionateScreenWidth(15),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const Divider(
-                        color: kGrayColor,
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Category',
-                          style: TextStyle(
-                            color: kSecondaryColor,
-                            fontSize: getProportionateScreenWidth(16),
-                          ),
-                        ),
-                        dense: true,
-                        subtitle: const Text('Mens Apperal'),
-                        trailing: Checkbox(
-                          value: true,
-                          fillColor:
-                              MaterialStateProperty.all<Color>(kGrayColor),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          onChanged: (bool? newValue) {},
-                        ),
-                      ),
-                      const Divider(
-                        color: kGrayColor,
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Brans',
-                          style: TextStyle(
-                            color: kSecondaryColor,
-                            fontSize: getProportionateScreenWidth(16),
-                          ),
-                        ),
-                        dense: true,
-                        subtitle: const Text('All brands'),
-                        trailing: Checkbox(
-                          value: true,
-                          fillColor:
-                              MaterialStateProperty.all<Color>(kGrayColor),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          onChanged: (bool? newValue) {},
-                        ),
-                      ),
-                      const Divider(
-                        color: kGrayColor,
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Size',
-                          style: TextStyle(
-                            color: kSecondaryColor,
-                            fontSize: getProportionateScreenWidth(16),
-                          ),
-                        ),
-                        dense: true,
-                        subtitle: const Text('Larg'),
-                        trailing: Checkbox(
-                          value: false,
-                          fillColor:
-                              MaterialStateProperty.all<Color>(kGrayColor),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          onChanged: (bool? newValue) {},
-                        ),
-                      ),
-                      const Divider(
-                        color: kGrayColor,
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Price Range',
-                          style: TextStyle(
-                            color: kSecondaryColor,
-                            fontSize: getProportionateScreenWidth(16),
-                          ),
-                        ),
-                        dense: true,
-                        subtitle: const Text('\$0-\$200'),
-                        trailing: Checkbox(
-                          value: true,
-                          fillColor:
-                              MaterialStateProperty.all<Color>(kGrayColor),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          onChanged: (bool? newValue) {},
-                        ),
-                      ),
-                      const Divider(
-                        color: kGrayColor,
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Condition',
-                          style: TextStyle(
-                            color: kSecondaryColor,
-                            fontSize: getProportionateScreenWidth(16),
-                          ),
-                        ),
-                        dense: true,
-                        subtitle: const Text('Brand New'),
-                        trailing: Checkbox(
-                          value: true,
-                          fillColor:
-                              MaterialStateProperty.all<Color>(kGrayColor),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          onChanged: (bool? newValue) {},
-                        ),
-                      ),
-                      const Divider(
-                        color: kGrayColor,
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Material',
-                          style: TextStyle(
-                            color: kSecondaryColor,
-                            fontSize: getProportionateScreenWidth(16),
-                          ),
-                        ),
-                        dense: true,
-                        subtitle: const Text('Leather'),
-                        trailing: Checkbox(
-                          value: false,
-                          fillColor:
-                              MaterialStateProperty.all<Color>(kGrayColor),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          onChanged: (bool? newValue) {},
-                        ),
-                      ),
-                      const Divider(
-                        color: kGrayColor,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: Size(
-                            getProportionateScreenWidth(300),
-                            getProportionateScreenHeight(40),
-                          ),
-                          shadowColor: Colors.black,
-                          onPrimary: Colors.white,
-                          primary: kPrimaryColor,
-                        ),
-                        child: const Text('Apply Filter'),
-                      )
-                    ],
-                  ),
-                ),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25.0),
-                    topRight: Radius.circular(25.0),
-                  ),
-                ),
-                enterBottomSheetDuration: const Duration(milliseconds: 400),
-                exitBottomSheetDuration: const Duration(microseconds: 200),
-                backgroundColor: Colors.white,
-                isScrollControlled: true,
-                ignoreSafeArea: false,
-                enableDrag: true,
-                isDismissible: true,
-                persistent: true,
-                useRootNavigator: true,
-              );
-            },
-            icon: Icon(
-              Icons.filter_alt_outlined,
-              color: kGrayColor,
-              size: getProportionateScreenWidth(35),
-            ),
-          ),
+          _buildIconButtonFilter(),
         ],
         isBackBtn: true,
       ),
@@ -278,6 +60,222 @@ class SearchScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  IconButton _buildIconButtonFilter() {
+    return IconButton(
+      onPressed: () {
+        Get.bottomSheet(
+          Container(
+            padding: const EdgeInsets.all(5),
+            height: SizeConfig.screenHeight / 1.2,
+            width: SizeConfig.screenWidth,
+            child: Column(
+              children: <Widget>[
+                Center(
+                  child: Divider(
+                    color: kGrayColor,
+                    thickness: 5,
+                    indent: getProportionateScreenWidth(150),
+                    endIndent: getProportionateScreenWidth(150),
+                    height: 25,
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Filter',
+                    style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: getProportionateScreenWidth(18),
+                    ),
+                  ),
+                  trailing: InkWell(
+                    onTap: () {},
+                    focusColor: kPrimaryColor,
+                    child: Text(
+                      'Clear',
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w800,
+                        fontSize: getProportionateScreenWidth(15),
+                      ),
+                    ),
+                  ),
+                ),
+                const Divider(
+                  color: kGrayColor,
+                ),
+                ListTile(
+                  title: Text(
+                    'Category',
+                    style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: getProportionateScreenWidth(16),
+                    ),
+                  ),
+                  dense: true,
+                  subtitle: const Text('Mens Apperal'),
+                  trailing: Checkbox(
+                    value: true,
+                    fillColor: MaterialStateProperty.all<Color>(kGrayColor),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    onChanged: (bool? newValue) {},
+                  ),
+                ),
+                const Divider(
+                  color: kGrayColor,
+                ),
+                ListTile(
+                  title: Text(
+                    'Brans',
+                    style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: getProportionateScreenWidth(16),
+                    ),
+                  ),
+                  dense: true,
+                  subtitle: const Text('All brands'),
+                  trailing: Checkbox(
+                    value: true,
+                    fillColor: MaterialStateProperty.all<Color>(kGrayColor),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    onChanged: (bool? newValue) {},
+                  ),
+                ),
+                const Divider(
+                  color: kGrayColor,
+                ),
+                ListTile(
+                  title: Text(
+                    'Size',
+                    style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: getProportionateScreenWidth(16),
+                    ),
+                  ),
+                  dense: true,
+                  subtitle: const Text('Larg'),
+                  trailing: Checkbox(
+                    value: false,
+                    fillColor: MaterialStateProperty.all<Color>(kGrayColor),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    onChanged: (bool? newValue) {},
+                  ),
+                ),
+                const Divider(
+                  color: kGrayColor,
+                ),
+                ListTile(
+                  title: Text(
+                    'Price Range',
+                    style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: getProportionateScreenWidth(16),
+                    ),
+                  ),
+                  dense: true,
+                  subtitle: const Text('\$0-\$200'),
+                  trailing: Checkbox(
+                    value: true,
+                    fillColor: MaterialStateProperty.all<Color>(kGrayColor),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    onChanged: (bool? newValue) {},
+                  ),
+                ),
+                const Divider(
+                  color: kGrayColor,
+                ),
+                ListTile(
+                  title: Text(
+                    'Condition',
+                    style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: getProportionateScreenWidth(16),
+                    ),
+                  ),
+                  dense: true,
+                  subtitle: const Text('Brand New'),
+                  trailing: Checkbox(
+                    value: true,
+                    fillColor: MaterialStateProperty.all<Color>(kGrayColor),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    onChanged: (bool? newValue) {},
+                  ),
+                ),
+                const Divider(
+                  color: kGrayColor,
+                ),
+                ListTile(
+                  title: Text(
+                    'Material',
+                    style: TextStyle(
+                      color: kSecondaryColor,
+                      fontSize: getProportionateScreenWidth(16),
+                    ),
+                  ),
+                  dense: true,
+                  subtitle: const Text('Leather'),
+                  trailing: Checkbox(
+                    value: false,
+                    fillColor: MaterialStateProperty.all<Color>(kGrayColor),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    onChanged: (bool? newValue) {},
+                  ),
+                ),
+                const Divider(
+                  color: kGrayColor,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(
+                      getProportionateScreenWidth(300),
+                      getProportionateScreenHeight(40),
+                    ),
+                    shadowColor: Colors.black,
+                    onPrimary: Colors.white,
+                    primary: kPrimaryColor,
+                  ),
+                  child: const Text('Apply Filter'),
+                )
+              ],
+            ),
+          ),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25.0),
+              topRight: Radius.circular(25.0),
+            ),
+          ),
+          enterBottomSheetDuration: const Duration(milliseconds: 400),
+          exitBottomSheetDuration: const Duration(microseconds: 200),
+          backgroundColor: Colors.white,
+          isScrollControlled: true,
+          ignoreSafeArea: false,
+          enableDrag: true,
+          isDismissible: true,
+          persistent: true,
+          useRootNavigator: true,
+        );
+      },
+      icon: Icon(
+        Icons.filter_alt_outlined,
+        color: kGrayColor,
+        size: getProportionateScreenWidth(35),
       ),
     );
   }
@@ -354,15 +352,20 @@ class SearchScreen extends StatelessWidget {
                   physics: const ScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
                     final Product product = snapshot.data![index];
-                    final Product parameters = product;
+                    // final Product parameters = product;
                     return InkWell(
                       splashColor: kPrimaryColor,
                       highlightColor: kPrimaryColor,
                       autofocus: true,
-                      onTap: () => Get.toNamed(
-                        singleProductViewRoute,
-                        arguments: parameters,
-                      ),
+                      // onTap: () => Get.toNamed(
+                      //   singleProductViewRoute,
+                      //   arguments: parameters,
+                      // ),
+
+                      onTap: () {
+                        controller.selectedProduct = product;
+                        Get.toNamed(singleProductViewRoute);
+                      },
                       child: Card(
                         semanticContainer: false,
                         child: Column(

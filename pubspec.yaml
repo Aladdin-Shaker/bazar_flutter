@@ -14,7 +14,9 @@ dependencies:
 
   # flutter_svg: ^0.22.0
   # provider: ^5.0.0
+  flutter_rating_bar: ^4.0.0
   get:
+  status_change: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -26,6 +28,7 @@ flutter:
 
   assets:
     - assets/images/landing.png
+    - assets/images/users/
 
   fonts:
     - family: Poppins

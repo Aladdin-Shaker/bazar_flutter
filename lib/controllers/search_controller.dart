@@ -4,6 +4,7 @@ import 'package:get/state_manager.dart';
 
 class SearchController extends GetxController with StateMixin {
   List<Product> futureAllProducts = <Product>[];
+  late Product selectedProduct;
 
   @override
   void onInit() {
@@ -12,7 +13,7 @@ class SearchController extends GetxController with StateMixin {
   }
 
   Future<List<Product>> fetchAllProducts() async {
-    print('fetchAllProducts called ');
+    print('SEARCH_CTRL => fetchAllProducts called ');
 
     return futureAllProducts = await ProductService.getAllProducts();
 

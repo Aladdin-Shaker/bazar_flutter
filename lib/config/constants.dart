@@ -8,14 +8,20 @@ const String landingViewRoute = '/landing';
 const String initViewRoute = '/init';
 const String homeViewRoute = '/home';
 const String messagesViewRoute = '/messages';
+const String chatViewRoute = '/chat';
 const String cartViewRoute = '/cart';
+const String checkoutViewRoute = '/checkout';
 const String accountViewRoute = '/account';
 const String signinViewRoute = '/signin';
 const String signupViewRoute = '/signup';
 const String logoutRoute = '/logout';
 const String categoriesViewRoute = '/categories';
 const String searchViewRoute = '/search';
+const String favoriteViewRoute = '/favorite';
+const String deliveryStatusRoute = '/delivery_status';
+const String orderFinishedRoute = '/order_finished';
 const String singleProductViewRoute = '/single_product';
+const String notificationsViewRoute = '/notifications';
 const String undefiendRoute = '/undefiend';
 
 // colors

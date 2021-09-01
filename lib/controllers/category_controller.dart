@@ -1,5 +1,6 @@
 import 'package:bazar/models/category.dart';
 import 'package:bazar/services/category_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/state_manager.dart';
 
 class CategoryController extends GetxController with StateMixin {
@@ -15,7 +16,7 @@ class CategoryController extends GetxController with StateMixin {
         .then((response) {
           allCategories.value = response;
         })
-        .catchError((err) => print('Error!!!!! : $err'))
-        .whenComplete(() => print('completed'));
+        .catchError((err) => debugPrint('Error!!!!! : $err'))
+        .whenComplete(() => debugPrint('completed'));
   }
 }

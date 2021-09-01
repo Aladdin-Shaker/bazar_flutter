@@ -10,6 +10,7 @@ AppBar customAppbar({
   return AppBar(
     elevation: 0.4,
     // centerTitle: true,
+
     title: title,
     leading: isBackBtn
         ? IconButton(
